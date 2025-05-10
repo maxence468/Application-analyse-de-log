@@ -1,8 +1,7 @@
-<?php
-//acces mes statistiques
-//acces mes informations
-?>
 <h2>Connexion loueur</h2>
-<a href="connexion.php">Deconnexion ou quitter</a>
-<a href="mesStats.php">Mes statistiques</a>
-<a href="mesInformations.php">Mes informations</a>
+<h3><?php echo htmlspecialchars($_SESSION['loueur_nom']) ?></h3>
+<div id="btnConnexion">
+    <a href="connexion.php">Déconnexion</a>
+    <a href="mesStats.php">Mes statistiques</a>
+    <a href="mesInformations.php">Mes informations</a>
+</div>

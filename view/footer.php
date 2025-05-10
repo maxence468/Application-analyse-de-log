@@ -1,5 +1,5 @@
-<nav>
-    Giurgiuman Alexandre, Barthelemy Maxence, Gamet Dylan
-</nav>
+<footer>
+    <strong>Giurgiuman Alexandre, Barthelemy Maxence, Gamet Dylan
+</footer>
 </body>
 </html>

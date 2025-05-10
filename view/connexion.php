@@ -9,7 +9,11 @@
 <form method="post" action="index.php">
     <table id="connexionTable">
         <tr>
-            <td colspan="3"><input type="text" name="nom" placeholder="Identifiant" /></td>
+            <td colspan="3"><input type="text" name="id" min="0" placeholder="Identifiant" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="3"><input type="text" name="nom" placeholder="Nom" /></td>
         </tr>
 
         <tr>
@@ -18,7 +22,7 @@
 
         <tr>
             <td><br><a href="#"><input class="btn btn-warning" name="btnErase" type="reset" value="Effacer" /></a></td>
-            <td><br><a href="index.php?btnConnexion"><input class="btn btn-primary" name="btnConnexion" type="submit" value="Jouer" /></a></td>
+            <td><br><a href="index.php?btnConnexion"><input class="btn btn-primary" name="btnConnexion" type="submit" value="Connexion" /></a></td>
         </tr>
     </table>
 </form>

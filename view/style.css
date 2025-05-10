@@ -1,0 +1,38 @@
+h2 {
+    text-align: center;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+}
+
+#btnConnexion {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    justify-content: center
+    margin-top: 20px;
+    color: black;
+    background-color: lightgreen;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a {
+    color: black;
+    background-color: lightgreen;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}

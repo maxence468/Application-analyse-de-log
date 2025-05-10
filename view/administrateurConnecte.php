@@ -1,8 +1,13 @@
-<?php
-//acces les statistiques
-//acces administration
-?>
 <h2>Connexion administrateur</h2>
-<a href="connexion.php">Deconnexion ou quitter</a>
-<a href="lesStats.php">Les statistiques</a>
-<a href="administration.php">Administration</a>
+<h3><?php echo htmlspecialchars($_SESSION['loueur_nom']) ?></h3>
+<div id="btnConnexion">
+    <a href="connexion.php">
+        Déconnexion
+    </a>
+    <a href="lesStats.php">
+        Les statistiques
+    </a>
+    <a href="administration.php"">
+        Administration
+    </a>
+</div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('connexionMySQL.php');
-include(__DIR__ . '/../DTO/loueur.php');
+include('model/BO/loueur.php');
 
 class loueurDAO extends connexionMySQL {
     public function __construct() {
@@ -22,6 +22,10 @@ class loueurDAO extends connexionMySQL {
                 $_SESSION['nom'] = $data['nom'];
                 $_SESSION['appelsKO'] = intval($data['appelsKO']);
                 $_SESSION['timeouts'] = intval($data['timeouts']);
+                $_SESSION['pays'] = intval($data['pays']);
+                $_SESSION['email'] = intval($data['email']);
+                $_SESSION['numTel'] = intval($data['numTel']);
+                $_SESSION['date'] = intval($data['date']);
             } else {
                 $res = "Utilisateur incorrect";
             }

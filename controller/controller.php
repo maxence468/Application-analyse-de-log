@@ -11,7 +11,7 @@ if(isset($_POST['btnConnexion'])) {
         include('view/lesStats.php');
         include('view/footer.php');
     } else if(isset($_POST['nom']) && $_POST['nom'] != '' && isset($_POST['motdepasse']) && $_POST['motdepasse'] != '') {
-        $result = $joueurDAO->connecteUtilisateur($_POST['nom'], $_POST['motdepasse']);
+        $result = $loueurDAO->connecteUtilisateur($_POST['nom'], $_POST['motdepasse']);
         if($result == "Utilisateur ou mot de passe incorrect") {
             $message_erreur = 'Utilisateur ou mot de passe incorrect';
             $title = 'Connexion';
