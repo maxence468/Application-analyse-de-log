@@ -1,4 +1,7 @@
 <?php
+require_once('controller/controller.php');
+
+//Les include sont là uniquement pour que je puisse avancé mes vues
 include('view/header.php');
 
 //include('view/connexion.php');
