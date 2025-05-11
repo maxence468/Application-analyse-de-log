@@ -8,7 +8,7 @@ if(isset($_POST['btnConnexion'])) {
     if(isset($_POST['nom']) && $_POST['nom'] == 'administrateur' && isset($_POST['motdepasse']) && $_POST['motdepasse'] == 'administrateur') {
         $title = 'Administrateur';
         include('view/header.php');
-        include('view/lesStats.php');
+        include('view/administrateurConnecte.php');
         include('view/footer.php');
     } else if(isset($_POST['nom']) && $_POST['nom'] != '' && isset($_POST['motdepasse']) && $_POST['motdepasse'] != '') {
         $result = $loueurDAO->connecteUtilisateur($_POST['nom'], $_POST['motdepasse']);
@@ -19,9 +19,9 @@ if(isset($_POST['btnConnexion'])) {
             include('view/connexion.php');
             include('view/footer.php');
         } else {
-            $title = 'Jeu de la roulette';
+            $title = 'Loueur';
             include('view/header.php');
-            include('view/mesStats.php');
+            include('view/loueurConnecte.php');
             include('view/footer.php');
         }
     } else {
