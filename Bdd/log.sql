@@ -15,4 +15,6 @@ CREATE TABLE IF NOT EXISTS `loueur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `loueur`(`id`, `nom`, `appelsKO`, `timeouts`, `motdepasse`)
-VALUES ('2000','administrateur','0','0','administrateur');
+VALUES ('2000','Admin','0','0','Admin');
+INSERT INTO `loueur`(`id`, `nom`, `appelsKO`, `timeouts`, `motdepasse`)
+VALUES ('2001','test','0','0','test');
