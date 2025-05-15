@@ -1,15 +1,47 @@
 <h3><?php echo htmlspecialchars($_SESSION['loueur_nom']) ?></h3>
 <div id="btnConnexion">
-    <a href="connexion.php">Déconnexion</a>
-    <a href="lesStats.php">Retour en arrière</a>
-    <a href="derniereStatsAdmin.php">Dernière statistiques</a>
-    <a href="statsParLoueur.php">Statistiques par loueur</a>
+    <a href="index.php?deco">Déconnexion</a>
+    <a href="index.php?lesStats">Retour en arrière</a>
+    <a href="index.php?derniereStatsAdmin">Dernière statistiques</a>
+    <a href="index.php?statsParLoueur">Statistiques par loueur</a>
 </div>
-<?php /*foreach($loueur) {
-    echo '<h3>'.$loueur->getId().'</h3>';
-    echo '<h3>'.$loueur->getNom().'</h3>';
-    echo '<p>'.$loueur->getTimeouts().'</p>';
-    echo '<p>'.$loueur->getRetourKO().'</p>';
-    echo '<small>Publié le '.$loueur->getDate().'</small>';
-}*/
-?>
+
+<form method="post" action="index.php?historiqueAdmin">
+    <input type >
+</form>
+
+<h1>Historique des Logs</h1>
+
+    <?php if (isset($logs) && !empty($logs)): ?>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>nom</th>
+                <th>Date</th>
+                <th>Erreur KO</th>
+                <th>Erreur Timeout</th>
+                <th>pays</th>
+                <th>email</th>
+                <th>numero de telephone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($logs as $log): ?>
+                <tr>
+                    <td><?= htmlspecialchars((string) $log['id']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['nom']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['date']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['appelsKO']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['timeouts']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['pays']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['email']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['numTel']) ?></td>
+
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>Aucun log à afficher.</p>
+    <?php endif; ?>

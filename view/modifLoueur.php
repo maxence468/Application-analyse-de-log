@@ -1,14 +1,17 @@
 <h2>Modification d'un loueur</h2>
 <h3><?php echo htmlspecialchars($_SESSION['loueur_nom']) ?></h3>
 <div id="btnConnexion">
-    <a href="connexion.php">Déconnexion</a>
-    <a href="administration.php.php">Retour en arrière</a>
-    <a href="creerLoueur.php">Créer un loueur</a>
-    <a href="supprimerLoueur.php">Supprimer un loueur</a>
+    <a href="index.php?deco">Déconnexion</a>
+    <a href="index.php?lesStats">Retour en arrière</a>
+    <a href="index.php?creerLoueur">Créer un loueur</a>
+    <a href="index.php?supprimerLoueur">Supprimer un loueur</a>
 </div>
 <p>Modifier votre loueur</p>
+<?php if($message_valider != '')
+    echo "<div class=\"alert alert-danger errorMessage\">$message_valider</div>";
+?>
 <br>
-<form method="post" action="index.php">
+<form method="post" action="index.php?modifierLoueur">
     <table id="modif                                                                                                                                                                                                                                                                                                                                                                                                                                    Loueur">
         <tr>
             <td colspan="3"><input type="number" name="id" min="0" placeholder="Id" /></td>
@@ -44,7 +47,7 @@
 
         <tr>
             <td><br><a class="effacer" href="#"><input class="btn btn-warning" name="btnErase" type="reset" value="Effacer" /></a></td>
-            <td><br><a href="index.php?btnConnexion"><input class="btn btn-primary" name="btnConnexion" type="submit" value="Modifier" /></a></td>
+            <td><br><input class="btn btn-primary" name="btnConnexion" type="submit" value="Modifier" /></td>
         </tr>
     </table>
 </form>

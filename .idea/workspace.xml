@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63032531-c14a-43c4-9ac5-3d37c439b61d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjetLogFrontEnd.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bdd/log.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Bdd/log.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/BO/Loueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/BO/Loueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/BO/administrateur.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/DAO/administrateurDAO.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/DAO/loueurDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/DAO/loueurDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administrateurConnecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administrateurConnecte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administration.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/derniereStatsAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/derniereStatsAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/derniereStatsLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/derniereStatsLoueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/gestionDesLoueurs.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/gestionDesLoueurs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/historiqueAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/historiqueAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/historiqueLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/historiqueLoueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/lesStats.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/lesStats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/loueurConnecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/loueurConnecte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/mesInformations.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/mesInformations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/mesStats.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/mesStats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/statsParLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/statsParLoueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="63032531-c14a-43c4-9ac5-3d37c439b61d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,18 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "DylanG-Dev"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DylanG-Dev&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DylanG-Dev/Application-analyse-de-log.git",
-    "accountId": "364113ce-9819-4e4b-8d10-657fab6b01b3"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DylanG-Dev/Application-analyse-de-log.git&quot;,
+    &quot;accountId&quot;: &quot;364113ce-9819-4e4b-8d10-657fab6b01b3&quot;
   }
-}]]></component>
+}</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\php-8.4.6\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -71,26 +44,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PHP Script.index.php.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/wamp64/www/rouletteCybersecurite",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHP Script.index.php.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Application-analyse-de-log&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PS-243.22562.233" />
-        <option value="bundled-php-predefined-a98d8de5180a-7980c7aaca61-com.jetbrains.php.sharedIndexes-PS-243.22562.233" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PS-251.23774.466" />
+        <option value="bundled-php-predefined-a98d8de5180a-aaeaa8632555-com.jetbrains.php.sharedIndexes-PS-251.23774.466" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +81,12 @@
       <workItem from="1746519300674" duration="1745000" />
       <workItem from="1746557924600" duration="280000" />
       <workItem from="1746558221881" duration="14142000" />
+      <workItem from="1747052125358" duration="119000" />
+      <workItem from="1747053293004" duration="8622000" />
+      <workItem from="1747124892080" duration="8804000" />
+      <workItem from="1747224632866" duration="16748000" />
+      <workItem from="1747299686432" duration="1966000" />
+      <workItem from="1747310961047" duration="3585000" />
     </task>
     <servers />
   </component>

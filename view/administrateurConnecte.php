@@ -1,13 +1,13 @@
 <h2>Connexion administrateur</h2>
 <h3><?php echo htmlspecialchars($_SESSION['loueur_nom']) ?></h3>
 <div id="btnConnexion">
-    <a href="connexion.php">
+    <a href="index.php?deco">
         Déconnexion
     </a>
-    <a href="lesStats.php">
+    <a href="index.php?lesStats">
         Les statistiques
     </a>
-    <a href="administration.php"">
+    <a href="index.php?administration"">
         Administration
     </a>
 </div>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('connexionMySQL.php');
 include('model/BO/loueur.php');
 
@@ -8,28 +7,87 @@ class loueurDAO extends connexionMySQL {
         parent::__construct();
     }
 
-    public function connecteUtilisateur($utilisateur) {
-        $res = '';
+    public function connecteUtilisateur($id, $nom, $motdepasse) {
+        $res = null;
         if ($this->bdd) {
-            $sql = 'SELECT * FROM loueur WHERE nom = ?';
+            $sql = 'SELECT * FROM loueur WHERE id = ? AND nom = ? AND motdepasse = ?';
             $result = $this->bdd->prepare($sql);
-            $result->execute( [$utilisateur] );
+            $result->execute( [$id, $nom, $motdepasse]);
+            $data = $result->fetch(PDO::FETCH_ASSOC);
 
-
-            $data = $result->fetch();
-            if($data) {
-                $_SESSION['id'] = intval($data['identifiant']);
-                $_SESSION['nom'] = $data['nom'];
-                $_SESSION['appelsKO'] = intval($data['appelsKO']);
-                $_SESSION['timeouts'] = intval($data['timeouts']);
-                $_SESSION['pays'] = intval($data['pays']);
-                $_SESSION['email'] = intval($data['email']);
-                $_SESSION['numTel'] = intval($data['numTel']);
-                $_SESSION['date'] = intval($data['date']);
-            } else {
-                $res = "Utilisateur incorrect";
+            if($data){
+                $res = $data;
             }
         }
         return $res;
+    }
+
+    public function getHistoriqueAdmin() {
+        $sql = 'SELECT * FROM loueur ORDER BY date DESC';
+        $result = $this->bdd->query($sql);
+        $data = $result->fetchAll();
+        return $data;
+    }
+
+    public function getHistoriqueAdminByDate($date){
+        $sql = 'SELECT * FROM loueur WHERE date = ?';
+        $result = $this->bdd->prepare($sql);
+        $result->execute([$date]);
+        $data = $result->fetchAll();
+        return $data;
+
+    }
+
+    public function getByLoueur($nom) {
+        $sql = 'SELECT * FROM loueur WHERE nom = ?';
+        $result = $this->bdd->prepare($sql);
+        $result->execute([$nom]);
+        $data = $result->fetch();
+        return $data;
+    }
+
+    public function getLastDate($nom) {
+        $sql = 'SELECT nom, date ,timeouts ,appelsKO FROM loueur WHERE nom = ? AND date = (SELECT MAX(date) FROM loueur WHERE nom = ?);';
+        $stmt = $this->bdd->prepare($sql);
+        $stmt->execute([$nom, $nom]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function create($loueur) {
+        $sql = 'INSERT INTO loueur VALUES (?,?,?,?,?,?,?,?,?,0)';
+        $result = $this->bdd->prepare($sql);
+        $result->execute([
+            $loueur->getId(),
+            $loueur->getNom(),
+            $loueur->getAppelsKO(),
+            $loueur->getTimeouts(),
+            $loueur->getMotdepasse(),
+            $loueur->getPays(),
+            $loueur->getEmail(),
+            $loueur->getNumTel(),
+            $loueur->getDate()->format('Y-m-d H:i:s'),
+        ]);
+    }
+
+    public function update($loueur) {
+        $sql = 'UPDATE loueur SET nom = ?, appelsKO = ?, timeouts = ?, motdepasse = ?, pays = ?, email = ?, numTel = ?, date = ? WHERE id = ?';
+        $result = $this->bdd->prepare($sql);
+        $result->execute([
+            $loueur->getNom(),
+            $loueur->getAppelsKO(),
+            $loueur->getTimeouts(),
+            $loueur->getMotdepasse(),
+            $loueur->getPays(),
+            $loueur->getEmail(),
+            $loueur->getNumTel(),
+            $loueur->getDate()->format('Y-m-d H:i:s'),
+            $loueur->getId(),
+        ]);
+    }
+
+    public function delete($nom) {
+        $sql = 'DELETE FROM loueur WHERE nom = ?';
+        $result = $this->bdd->prepare($sql);
+        $result->execute([$nom]);
     }
 }

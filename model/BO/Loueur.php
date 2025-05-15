@@ -11,6 +11,10 @@ class loueur {
     private int $appelsKO = 0;
     private int $timeouts = 0;
     private string $motdepasse;
+    private string $pays;
+    private string $email;
+    private string $numTel;
+    private DateTime $date;
 
     public function getEmail(): string
     {
@@ -61,11 +65,6 @@ class loueur {
     {
         $this->pays = $pays;
     }
-    private string $pays;
-    private string $email;
-    private string $numTel;
-    private DateTime $date;
-
     public function getId(): int {
         return $this->id;
     }

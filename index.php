@@ -1,8 +1,8 @@
 <?php
 require_once('controller/controller.php');
 
-//Les include sont là uniquement pour que je puisse avancé mes vues
-include('view/header.php');
+//Les include sont là uniquement pour que je puisse avancer mes vues
+//include('view/header.php');
 
 //include('view/connexion.php');
 //include('view/loueurConnecte.php');
@@ -14,7 +14,7 @@ include('view/header.php');
 //include('view/administrateurConnecte.php');
 //include('view/lesStats.php');
 //include('view/historiqueAdmin.php');
-include('view/derniereStatsAdmin.php');
+//include('view/derniereStatsAdmin.php');
 //include('view/statsParLoueur.php');
 
 //include('view/administration.php');
@@ -23,7 +23,7 @@ include('view/derniereStatsAdmin.php');
 //include('view/modifLoueur.php');
 //include('view/supprLoueur.php');
 
-include('view/footer.php');
+//include('view/footer.php');
 
 /* L’ensemble des pages doit avoir un design identique.
  Les différents boutons doivent être positionnés au même endroit sur toutes les pages.
