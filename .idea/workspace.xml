@@ -7,15 +7,9 @@
     <list default="true" id="63032531-c14a-43c4-9ac5-3d37c439b61d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/BO/Loueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/BO/Loueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/DAO/connexionMySQL.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/DAO/connexionMySQL.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/DAO/loueurDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/DAO/loueurDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/creationLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/creationLoueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/derniereStatsAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/derniereStatsAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/DAO/LogsDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/DAO/LogsDAO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/historiqueAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/historiqueAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/modifLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/modifLoueur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/statsParLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/statsParLoueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/supprLoueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/supprLoueur.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +95,7 @@
       <workItem from="1747299686432" duration="1966000" />
       <workItem from="1747310961047" duration="3585000" />
       <workItem from="1747315236178" duration="9822000" />
-      <workItem from="1747376323232" duration="4852000" />
+      <workItem from="1747376323232" duration="13747000" />
     </task>
     <servers />
   </component>

@@ -29,11 +29,25 @@ class LogsDAO extends connexionMySQL{
     }
 
     public function getByLoueurByDate($id,$date) {
-        $sql = "SELECT * FROM logs INNER JOIN loueur ON loueur.id = logs.loueur_id WHERE nom = ? AND date = ?";
+        $sql = "SELECT * FROM logs INNER JOIN loueur ON loueur.id = logs.loueur_id WHERE loueur_id = ? AND date = ?";
         $stmt = $this->bdd->prepare($sql);
         $stmt->execute([$id, $date]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getSumByIdByDate($id,$date){
+        $sql = "SELECT SUM(erreurKO) as total_erreur_KO, SUM(erreurTimeouts) as total_erreur_Timeouts FROM logs  WHERE loueur_id = ? AND date = ?";
+        $stmt = $this->bdd->prepare($sql);
+        $stmt->execute([$id, $date]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getSumTotalByDate($date){
+        $sql = "SELECT SUM(erreurKO) as total_erreur_KO, SUM(erreurTimeouts) as total_erreur_Timeouts FROM logs  WHERE date = ?";
+        $stmt = $this->bdd->prepare($sql);
+        $stmt->execute([$date]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
 
 

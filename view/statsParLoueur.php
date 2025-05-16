@@ -11,7 +11,7 @@
     <table id="statsLoueur">
         <tr>
             <td colspan="3">
-                <input type="text" name="id" placeholder="Nom du loueur" required />
+                <input type="number" name="id" placeholder="Id du loueur" required />
             </td>
             <td colspan="3">
                 <input type="date" name="date">
@@ -23,6 +23,44 @@
         </tr>
     </table>
 </form>
+
+<?php if (isset($_POST['btnRecherche'])):
+    if(!empty($logs)) : ?>
+        <h1>Statistique pour le loueur : <?= $logs[0]['nom'] ?> </h1>
+    <?php endif;
+endif; ?>
+
+
+<?php if (!empty($sum) || !empty($sumTotal)) : ?>
+    <table >
+        <thead>
+        <tr>
+            <th>Type d'erreur</th>
+            <th>Loueur</th>
+            <th>Total jour</th>
+            <th>Pourcentage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Erreur KO</td>
+            <td><?= $sum['total_erreur_KO'] ?? 0 ?></td>
+            <td><?= $sumTotal['total_erreur_KO'] ?? 0 ?></td>
+            <td><?= round($sum['total_erreur_KO'] / $sumTotal['total_erreur_KO'] * 100)?> %</td>
+        </tr>
+        <tr>
+            <td>Erreur Timeouts</td>
+            <td><?= $sum['total_erreur_Timeouts'] ?? 0 ?></td>
+            <td><?= $sumTotal['total_erreur_Timeouts'] ?? 0 ?></td>
+            <td><?= round($sum['total_erreur_Timeouts'] / $sumTotal['total_erreur_Timeouts'] * 100)?> %</td>
+        </tr>
+        </tbody>
+    </table>
+<?php endif; ?>
+
+
+
+
 
 <?php if (isset($_POST['btnRecherche'])): ?>
     <?php if (!empty($logs)): ?>

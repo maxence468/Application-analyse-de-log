@@ -4,6 +4,7 @@ use BO\loueur;
 require_once("model/DAO/logsDAO.php");
 require_once("model/DAO/loueurDAO.php");
 $ldao = new LogsDAO();
+$dao = new LoueurDAO();
 $message_erreur = '';
 $message_valider = '';
 $loueurDAO = null;
@@ -16,7 +17,6 @@ $log = null;
 
 if(isset($_POST['btnConnexion'])) {
     //Connexion
-    $dao = new LoueurDAO();
     if (isset($_POST['nom']) && isset($_POST['motdepasse'])) {
         $utilisateur = $dao->connecteUtilisateur($_POST['id'],$_POST['nom'],$_POST['motdepasse']);
         if($utilisateur) {
@@ -44,7 +44,6 @@ if (isset($_GET['lesStats'] )) {
 
 if (isset($_GET['historiqueAdmin'] )) {
     $vue = 'historiqueAdmin';
-    $dao = new LoueurDAO();
     $logs = $ldao->getHistoriqueAdmin();
     if(isset($_POST['btnChercher']) && $_POST['date'] != "") {
         $logs = $ldao->getHistoriqueAdminByDate($_POST['date']);
@@ -53,7 +52,6 @@ if (isset($_GET['historiqueAdmin'] )) {
 // les stats de tout les loueurs
 if (isset($_GET['derniereStatsAdmin'])) {
     $vue = 'derniereStatsAdmin';
-    $dao = new LoueurDAO();
     $logs = $ldao->getLastDate();
 
     if (!is_array($logs)) {
@@ -63,11 +61,12 @@ if (isset($_GET['derniereStatsAdmin'])) {
 
 if (isset($_GET['statsParLoueur'])) {
     $vue = 'statsParLoueur';
-    $dao = new LoueurDAO();
     $logs = [];
 
     if (isset($_POST['btnRecherche']) && !empty($_POST['id']) && !empty($_POST['date'])) {
         $log = $ldao->getByLoueurByDate($_POST['id'],$_POST['date']);
+        $sum = $ldao->getSumByIdByDate($_POST['id'],$_POST['date']);
+        $sumTotal = $ldao->getSumTotalByDate($_POST['date']);
         if (is_array($log)) {
             $logs = $log;
         }
@@ -80,7 +79,6 @@ if (isset($_GET['administration'])) {
 }
 if (isset($_GET['creerLoueur'])) {
     $vue = 'creerLoueur';
-    $dao = new LoueurDAO();
     if(isset($_POST['btnValider'])) {
         if (isset($_POST['nom']) && isset($_POST['motdepasse']) && isset($_POST['id']) && isset($_POST['pays']) && isset($_POST['email']) && isset($_POST['numTel'])) {
 
@@ -96,7 +94,6 @@ if (isset($_GET['creerLoueur'])) {
 
 if (isset($_GET['modifierLoueur'])) {
     $vue = 'modifierLoueur';
-    $dao = new LoueurDAO();
     if(isset($_POST['btnConnexion'])){
         if($_POST['id'] == TRUE ){
             if($_POST['nouveauNom'] != '' && $_POST['motdepasse'] != '' && $_POST['pays'] != '' && $_POST['email'] != '' && $_POST['numTel'] != ''){
@@ -118,7 +115,6 @@ if (isset($_GET['modifierLoueur'])) {
 }
 if (isset($_GET['supprimerLoueur'])) {
     $vue = 'supprimerLoueur';
-    $dao = new LoueurDAO();
     if(isset($_POST['btnValider'])){
         if ($_POST['id'] != ''){
             $dao->delete($_POST['id']);

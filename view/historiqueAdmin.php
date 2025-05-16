@@ -45,5 +45,5 @@
             </tbody>
         </table>
     <?php else: ?>
-        <p>Aucun log à afficher.</p>
+        <p>Aucun log à afficher Ce.</p>
     <?php endif; ?>
