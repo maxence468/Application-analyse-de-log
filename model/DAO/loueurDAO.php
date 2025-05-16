@@ -30,7 +30,7 @@ class loueurDAO extends connexionMySQL {
     }
 
     public function getHistoriqueAdminByDate($date){
-        $sql = 'SELECT * FROM loueur WHERE date = ?';
+        $sql = 'SELECT * FROM loueur WHERE DATE(date) = ?';
         $result = $this->bdd->prepare($sql);
         $result->execute([$date]);
         $data = $result->fetchAll();
@@ -38,23 +38,24 @@ class loueurDAO extends connexionMySQL {
 
     }
 
-    public function getByLoueur($nom) {
-        $sql = 'SELECT * FROM loueur WHERE nom = ?';
-        $result = $this->bdd->prepare($sql);
-        $result->execute([$nom]);
-        $data = $result->fetch();
+    public function getByLoueurByDate($id,$date) {
+        $sql = "SELECT * FROM loueur WHERE nom = ? AND date = ?";
+        $stmt = $this->bdd->prepare($sql);
+        $stmt->execute([$id, $date]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public function getLastDate() {
+        $sql = 'SELECT nom, date, timeouts, appelsKO FROM loueur WHERE date = (SELECT MAX(date) FROM loueur)';
+        $stmt = $this->bdd->prepare($sql);
+        $stmt->execute();
+        $data = $stmt->fetchAll();
         return $data;
     }
 
-    public function getLastDate($nom) {
-        $sql = 'SELECT nom, date ,timeouts ,appelsKO FROM loueur WHERE nom = ? AND date = (SELECT MAX(date) FROM loueur WHERE nom = ?);';
-        $stmt = $this->bdd->prepare($sql);
-        $stmt->execute([$nom, $nom]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
     public function create($loueur) {
-        $sql = 'INSERT INTO loueur VALUES (?,?,?,?,?,?,?,?,?,0)';
+        $sql = 'INSERT INTO loueur (id,nom,appelsKO,timeouts,motdepasse,pays,email,numTel,date) VALUES (?,?,?,?,?,?,?,?,?)';
         $result = $this->bdd->prepare($sql);
         $result->execute([
             $loueur->getId(),
@@ -69,8 +70,8 @@ class loueurDAO extends connexionMySQL {
         ]);
     }
 
-    public function update($loueur) {
-        $sql = 'UPDATE loueur SET nom = ?, appelsKO = ?, timeouts = ?, motdepasse = ?, pays = ?, email = ?, numTel = ?, date = ? WHERE id = ?';
+    public function update($loueur,$ancienNom) {
+        $sql = 'UPDATE loueur SET nom = ?, appelsKO = ?, timeouts = ?, motdepasse = ?, pays = ?, email = ?, numTel = ?, date = ? WHERE id = ? AND nom = ?';
         $result = $this->bdd->prepare($sql);
         $result->execute([
             $loueur->getNom(),
@@ -82,6 +83,7 @@ class loueurDAO extends connexionMySQL {
             $loueur->getNumTel(),
             $loueur->getDate()->format('Y-m-d H:i:s'),
             $loueur->getId(),
+            $ancienNom
         ]);
     }
 

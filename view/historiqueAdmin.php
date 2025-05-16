@@ -7,10 +7,12 @@
 </div>
 
 <form method="post" action="index.php?historiqueAdmin">
-    <input type >
+    <input type="date" name="date">
+    <input name="btnChercher" type="submit" value="Chercher par jour">
 </form>
 
 <h1>Historique des Logs</h1>
+
 
     <?php if (isset($logs) && !empty($logs)): ?>
         <table>

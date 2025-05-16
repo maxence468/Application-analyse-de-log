@@ -13,6 +13,9 @@
             <td colspan="3">
                 <input type="text" name="id" placeholder="Nom du loueur" required />
             </td>
+            <td colspan="3">
+                <input type="date" name="date">
+            </td>
         </tr>
         <tr>
             <td><input class="btn btn-warning" name="btnErase" type="reset" value="Effacer" /></td>
@@ -26,7 +29,6 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Erreur KO</th>
@@ -39,7 +41,6 @@
             <tbody>
             <?php foreach ($logs as $log): ?>
                 <tr>
-                    <td><?= htmlspecialchars((string) $log['id']) ?></td>
                     <td><?= htmlspecialchars((string) $log['nom']) ?></td>
                     <td><?= htmlspecialchars((string) $log['date']) ?></td>
                     <td><?= htmlspecialchars((string) $log['appelsKO']) ?></td>

@@ -14,12 +14,16 @@
 <form method="post" action="index.php?modifierLoueur">
     <table id="modif                                                                                                                                                                                                                                                                                                                                                                                                                                    Loueur">
         <tr>
-            <td colspan="3"><input type="number" name="id" min="0" placeholder="Id" /></td>
+            <td colspan="3"><input type="number" name="id" min="0" placeholder="Id du loueur à modifier" /></td>
         </tr>
 
         <tr>
-            <td colspan="3"><input type="text" name="nom" placeholder="Nom" /></td>
+            <td colspan="3"><input type="text" name="ancienNom" placeholder="Nom du loueur à modifier" /></td>
         </tr>
+
+        <tr>
+            <td colspan="3"><input type="text" name="nouveauNom" placeholder="Nouveau nom du loueur" /></td>
+        </tr
 
         <tr>
             <td colspan="3"><input type="number" name="appelsKO" min="0" placeholder="Nombre d'appelsKO" /></td>
