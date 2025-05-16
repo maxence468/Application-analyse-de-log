@@ -22,15 +22,8 @@ class loueurDAO extends connexionMySQL {
         return $res;
     }
 
-
-
-
-
-
-
-
     public function create($loueur) {
-        $sql = 'INSERT INTO loueur (id,nom,motdepasse,pays,email,telephone) VALUES (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO loueur (idLoueur,nom,mot_de_passe,pays,email,telephone) VALUES (?,?,?,?,?,?)';
         $result = $this->bdd->prepare($sql);
         $result->execute([
             $loueur->getId(),
@@ -43,7 +36,7 @@ class loueurDAO extends connexionMySQL {
     }
 
     public function update($loueur) {
-        $sql = 'UPDATE loueur SET nom = ?, motdepasse = ?, pays = ?, email = ?, telephone = ? WHERE id = ?';
+        $sql = 'UPDATE loueur SET nom = ?, mot_de_passe = ?, pays = ?, email = ?, telephone = ? WHERE idLoueur = ?';
         $result = $this->bdd->prepare($sql);
         $result->execute([
             $loueur->getNom(),
@@ -56,7 +49,7 @@ class loueurDAO extends connexionMySQL {
     }
 
     public function delete($id) {
-        $sql = 'DELETE FROM loueur WHERE id = ?';
+        $sql = 'DELETE FROM loueur WHERE idLoueur = ?';
         $result = $this->bdd->prepare($sql);
         $result->execute([$id]);
     }

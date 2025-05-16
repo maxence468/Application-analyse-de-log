@@ -31,7 +31,7 @@
             <tbody>
             <?php foreach ($logs as $log): ?>
                 <tr>
-                    <td><?= htmlspecialchars((string) $log['id']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['idLoueur']) ?></td>
                     <td><?= htmlspecialchars((string) $log['nom']) ?></td>
                     <td><?= htmlspecialchars((string) $log['date']) ?></td>
                     <td><?= htmlspecialchars((string) $log['erreurKO']) ?></td>
