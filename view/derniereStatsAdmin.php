@@ -11,19 +11,27 @@
     <table id="derniereStatsLoueur">
         <thead>
         <tr>
-            <th>Nom</th>
+            <th>ID</th>
+            <th>nom</th>
             <th>Date</th>
             <th>Erreur KO</th>
             <th>Erreur Timeout</th>
+            <th>pays</th>
+            <th>email</th>
+            <th>numero de telephone</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($logs as $log): ?>
             <tr>
+                <td><?= htmlspecialchars((string) $log['id']) ?></td>
                 <td><?= htmlspecialchars((string) $log['nom']) ?></td>
                 <td><?= htmlspecialchars((string) $log['date']) ?></td>
-                <td><?= htmlspecialchars((string) $log['appelsKO']) ?></td>
-                <td><?= htmlspecialchars((string) $log['timeouts']) ?></td>
+                <td><?= htmlspecialchars((string) $log['erreurKO']) ?></td>
+                <td><?= htmlspecialchars((string) $log['erreurTimeouts']) ?></td>
+                <td><?= htmlspecialchars((string) $log['pays']) ?></td>
+                <td><?= htmlspecialchars((string) $log['email']) ?></td>
+                <td><?= htmlspecialchars((string) $log['telephone']) ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

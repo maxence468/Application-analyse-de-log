@@ -22,74 +22,42 @@ class loueurDAO extends connexionMySQL {
         return $res;
     }
 
-    public function getHistoriqueAdmin() {
-        $sql = 'SELECT * FROM loueur ORDER BY date DESC';
-        $result = $this->bdd->query($sql);
-        $data = $result->fetchAll();
-        return $data;
-    }
-
-    public function getHistoriqueAdminByDate($date){
-        $sql = 'SELECT * FROM loueur WHERE DATE(date) = ?';
-        $result = $this->bdd->prepare($sql);
-        $result->execute([$date]);
-        $data = $result->fetchAll();
-        return $data;
-
-    }
-
-    public function getByLoueurByDate($id,$date) {
-        $sql = "SELECT * FROM loueur WHERE nom = ? AND date = ?";
-        $stmt = $this->bdd->prepare($sql);
-        $stmt->execute([$id, $date]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 
 
-    public function getLastDate() {
-        $sql = 'SELECT nom, date, timeouts, appelsKO FROM loueur WHERE date = (SELECT MAX(date) FROM loueur)';
-        $stmt = $this->bdd->prepare($sql);
-        $stmt->execute();
-        $data = $stmt->fetchAll();
-        return $data;
-    }
+
+
+
+
 
     public function create($loueur) {
-        $sql = 'INSERT INTO loueur (id,nom,appelsKO,timeouts,motdepasse,pays,email,numTel,date) VALUES (?,?,?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO loueur (id,nom,motdepasse,pays,email,telephone) VALUES (?,?,?,?,?,?)';
         $result = $this->bdd->prepare($sql);
         $result->execute([
             $loueur->getId(),
             $loueur->getNom(),
-            $loueur->getAppelsKO(),
-            $loueur->getTimeouts(),
             $loueur->getMotdepasse(),
             $loueur->getPays(),
             $loueur->getEmail(),
             $loueur->getNumTel(),
-            $loueur->getDate()->format('Y-m-d H:i:s'),
         ]);
     }
 
-    public function update($loueur,$ancienNom) {
-        $sql = 'UPDATE loueur SET nom = ?, appelsKO = ?, timeouts = ?, motdepasse = ?, pays = ?, email = ?, numTel = ?, date = ? WHERE id = ? AND nom = ?';
+    public function update($loueur) {
+        $sql = 'UPDATE loueur SET nom = ?, motdepasse = ?, pays = ?, email = ?, telephone = ? WHERE id = ?';
         $result = $this->bdd->prepare($sql);
         $result->execute([
             $loueur->getNom(),
-            $loueur->getAppelsKO(),
-            $loueur->getTimeouts(),
             $loueur->getMotdepasse(),
             $loueur->getPays(),
             $loueur->getEmail(),
             $loueur->getNumTel(),
-            $loueur->getDate()->format('Y-m-d H:i:s'),
             $loueur->getId(),
-            $ancienNom
         ]);
     }
 
-    public function delete($nom) {
-        $sql = 'DELETE FROM loueur WHERE nom = ?';
+    public function delete($id) {
+        $sql = 'DELETE FROM loueur WHERE id = ?';
         $result = $this->bdd->prepare($sql);
-        $result->execute([$nom]);
+        $result->execute([$id]);
     }
 }

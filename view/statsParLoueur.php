@@ -43,11 +43,11 @@
                 <tr>
                     <td><?= htmlspecialchars((string) $log['nom']) ?></td>
                     <td><?= htmlspecialchars((string) $log['date']) ?></td>
-                    <td><?= htmlspecialchars((string) $log['appelsKO']) ?></td>
-                    <td><?= htmlspecialchars((string) $log['timeouts']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['erreurKO']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['erreurTimeouts']) ?></td>
                     <td><?= htmlspecialchars((string) $log['pays']) ?></td>
                     <td><?= htmlspecialchars((string) $log['email']) ?></td>
-                    <td><?= htmlspecialchars((string) $log['numTel']) ?></td>
+                    <td><?= htmlspecialchars((string) $log['telephone']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

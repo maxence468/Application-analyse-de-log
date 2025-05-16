@@ -8,13 +8,10 @@ class loueur {
 
     private int $id;
     private string $nom;
-    private int $appelsKO = 0;
-    private int $timeouts = 0;
     private string $motdepasse;
     private string $pays;
     private string $email;
     private string $numTel;
-    private DateTime $date;
 
     public function getEmail(): string
     {
@@ -81,36 +78,16 @@ class loueur {
         $this->nom = $nom;
     }
 
-    public function getAppelsKO(): int {
-        return $this->appelsKO;
-    }
-
-    public function setAppelsKO(int $appelsKO): void {
-        $this->appelsKO = $appelsKO;
-    }
-
-    public function getTimeouts(): int {
-        return $this->timeouts;
-    }
-
-    public function setTimeouts(int $timeouts): void {
-        $this->timeouts = $timeouts;
-    }
-
-    public function __construct(int $id, string $nom, int $appelsKO, int $timeouts, string $motdepasse, string $pays, string $email, string $numTel, DateTime $date) {
+    public function __construct(int $id, string $nom, string $motdepasse, string $pays, string $email, string $numTel) {
         $this->id = $id;
         $this->nom = $nom;
-        $this->appelsKO = $appelsKO;
-        $this->timeouts = $timeouts;
         $this->motdepasse = $motdepasse;
         $this->pays = $pays;
         $this->email = $email;
         $this->numTel= $numTel;
-        $this->date= $date;
     }
 
     public function __toString(): string {
-        return "loueur : " . $this->nom . " (" . $this->id . "), nombre d'appels KO " .
-            $this->appelsKO . " et le nombre de timeouts " . $this->timeouts;
+        return "loueur : " . $this->nom . " (" . $this->id . ")";
     }
 }

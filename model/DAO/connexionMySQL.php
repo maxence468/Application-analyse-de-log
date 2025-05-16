@@ -4,7 +4,7 @@ class connexionMySQL {
     public function __construct() {
         $this->bdd = null;
         try {
-            $this->bdd = new PDO('mysql:host=localhost;dbname=analyselog;charset=utf8', 'root', '');
+            $this->bdd = new PDO('mysql:host=localhost;dbname=loueurtest;charset=utf8', 'root', '');
         } catch (Exception $e) {
             die('Erreur connexion BDD : ' .$e->getMessage());
         }

@@ -21,14 +21,6 @@
         </tr>
 
         <tr>
-            <td colspan="3"><input type="number" name="appelsKO" min="0" placeholder="Nombre d'appelsKO" /></td>
-        </tr>
-
-        <tr>
-            <td colspan="3"><input type="number" name="timeouts" min="0" placeholder="Nombre de timeouts" /></td>
-        </tr>
-
-        <tr>
             <td colspan="3"><input type="password" name="motdepasse" placeholder="Mot de passe" required /></td>
         </tr>
 

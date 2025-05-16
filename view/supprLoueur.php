@@ -15,7 +15,7 @@
 <form method="post" action="index.php?supprimerLoueur">
     <table id="suppr">                                                                                                                                                                                                                                                                                                                                                                                                                               Loueur">
         <tr>
-            <td colspan="3"><input type="text" name="nom" placeholder="Nom" /></td>
+            <td colspan="3"><input type="text" name="id" placeholder="ID" /></td>
         </tr>
         <tr>
             <td><br><a class="effacer" href="#"><input class="btn btn-warning" name="btnErase" type="reset" value="Effacer" /></a></td>

@@ -1,7 +1,9 @@
 <?php
 session_start();
 use BO\loueur;
-
+require_once("model/DAO/logsDAO.php");
+require_once("model/DAO/loueurDAO.php");
+$ldao = new LogsDAO();
 $message_erreur = '';
 $message_valider = '';
 $loueurDAO = null;
@@ -10,7 +12,8 @@ $vue = 'connexion';
 $logs = [];
 $log = null;
 
-require_once("model/DAO/loueurDAO.php");
+
+
 if(isset($_POST['btnConnexion'])) {
     //Connexion
     $dao = new LoueurDAO();
@@ -42,16 +45,16 @@ if (isset($_GET['lesStats'] )) {
 if (isset($_GET['historiqueAdmin'] )) {
     $vue = 'historiqueAdmin';
     $dao = new LoueurDAO();
-    $logs = $dao->getHistoriqueAdmin();
+    $logs = $ldao->getHistoriqueAdmin();
     if(isset($_POST['btnChercher']) && $_POST['date'] != "") {
-        $logs = $dao->getHistoriqueAdminByDate($_POST['date']);
+        $logs = $ldao->getHistoriqueAdminByDate($_POST['date']);
     }
 }
 // les stats de tout les loueurs
 if (isset($_GET['derniereStatsAdmin'])) {
     $vue = 'derniereStatsAdmin';
     $dao = new LoueurDAO();
-    $logs = $dao->getLastDate();
+    $logs = $ldao->getLastDate();
 
     if (!is_array($logs)) {
         $logs = []; // Sécurité si la méthode échoue
@@ -64,7 +67,7 @@ if (isset($_GET['statsParLoueur'])) {
     $logs = [];
 
     if (isset($_POST['btnRecherche']) && !empty($_POST['id']) && !empty($_POST['date'])) {
-        $log = $dao->getByLoueurByDate($_POST['id'],$_POST['date']);
+        $log = $ldao->getByLoueurByDate($_POST['id'],$_POST['date']);
         if (is_array($log)) {
             $logs = $log;
         }
@@ -80,17 +83,11 @@ if (isset($_GET['creerLoueur'])) {
     $dao = new LoueurDAO();
     if(isset($_POST['btnValider'])) {
         if (isset($_POST['nom']) && isset($_POST['motdepasse']) && isset($_POST['id']) && isset($_POST['pays']) && isset($_POST['email']) && isset($_POST['numTel'])) {
-            if (isset($_POST['appelsKO']) && isset($_POST['timeouts']) && $_POST['appelsKO'] != "" && $_POST['timeouts'] != "") {
+
                 $date = new DateTime();
-                $loueur = new Loueur($_POST['id'], $_POST['nom'], $_POST['appelsKO'], $_POST['timeouts'], $_POST['motdepasse'], $_POST['pays'], $_POST['email'], $_POST['numTel'], $date);
+                $loueur = new Loueur($_POST['id'], $_POST['nom'],$_POST['motdepasse'], $_POST['pays'], $_POST['email'], $_POST['numTel']);
                 $dao->create($loueur);
                 $message_valider = 'Loueur ' . $_POST['nom'] . ' créé';
-            } else {
-                $date = new DateTime();
-                $loueur = new Loueur( (int) $_POST['id'], $_POST['nom'], 0, 0, $_POST['motdepasse'], $_POST['pays'], $_POST['email'], $_POST['numTel'], $date);
-                $dao->create($loueur);
-                $message_valider = 'Loueur ' . $_POST['nom'] . ' créé';
-            }
         } else {
             $message_erreur = 'Vous devez remplir les champs obligatoires';
         }
@@ -102,10 +99,10 @@ if (isset($_GET['modifierLoueur'])) {
     $dao = new LoueurDAO();
     if(isset($_POST['btnConnexion'])){
         if($_POST['id'] == TRUE ){
-            if($_POST['ancienNom'] != '' && $_POST['nouveauNom'] != '' && $_POST['appelsKO'] != '' && $_POST['timeouts'] != '' && $_POST['motdepasse'] != '' && $_POST['pays'] != '' && $_POST['email'] != '' && $_POST['numTel'] != ''){
+            if($_POST['nouveauNom'] != '' && $_POST['motdepasse'] != '' && $_POST['pays'] != '' && $_POST['email'] != '' && $_POST['numTel'] != ''){
                 $date = new DateTime();
-                $loueur = new Loueur($_POST['id'], $_POST['nouveauNom'], $_POST['appelsKO'], $_POST['timeouts'], $_POST['motdepasse'], $_POST['pays'], $_POST['email'], $_POST['numTel'],$date);
-                $dao->update($loueur,$_POST['ancienNom']);
+                $loueur = new Loueur($_POST['id'], $_POST['nouveauNom'], $_POST['motdepasse'], $_POST['pays'], $_POST['email'], $_POST['numTel']);
+                $dao->update($loueur);
                 $message_valider = 'Loueur '. $_POST['nouveauNom'].' modifié';
             }
             else{
@@ -123,9 +120,9 @@ if (isset($_GET['supprimerLoueur'])) {
     $vue = 'supprimerLoueur';
     $dao = new LoueurDAO();
     if(isset($_POST['btnValider'])){
-        if ($_POST['nom'] != ''){
-            $dao->delete($_POST['nom']);
-            $message_valider = 'Loueur '. $_POST['nom'].' supprimé';
+        if ($_POST['id'] != ''){
+            $dao->delete($_POST['id']);
+            $message_valider = 'Loueur '. $_POST['id'].' supprimé';
         }
         else{
             $message_valider = 'vous devez entrer un nom';
